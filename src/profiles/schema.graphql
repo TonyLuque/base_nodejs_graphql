@@ -1,0 +1,8 @@
+type Profile {
+  id: ID!
+  firstName: String!
+  middleName: String
+  lastName: String!
+  secondName: String
+  age: String!
+}

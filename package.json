@@ -1,0 +1,23 @@
+{
+  "name": "base_graphql_node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js --watch src -e js, graphql",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "anthony luque",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^3.1.1",
+    "apollo-server": "^3.3.0",
+    "bcryptjs": "^2.4.3",
+    "graphql": "^15.6.0",
+    "jsonwebtoken": "^8.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13",
+    "prisma": "^3.1.1"
+  }
+}
