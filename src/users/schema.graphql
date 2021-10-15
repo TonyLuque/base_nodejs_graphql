@@ -1,9 +1,41 @@
+"Se devuelve el token necesario para el login y el User"
 type AuthPayload {
+  """
+  Este campo es el token que se genera para que
+  el usurio pueda hacer login y es necesario para consumir los servicios
+  """
   token: String
+
+  "Devuelve los datos del usuario"
   user: User
 }
 
+"Es el tipo del usuario"
 type User {
+  "Retorna una UUID constiuido por una larga cadena de caracteres unicos"
   id: ID!
+  "Es el email del usuario que debe ser unico"
   email: String!
+  type: String!
+}
+
+type Mutation {
+  "Crea un usuario, el email debe ser unico"
+  signup(email: String!, password: String!): signupMutationResponse!
+  "Permite obetenr el token para usar la API"
+  login(email: String!, password: String!): loginMutationResponse!
+}
+
+type signupMutationResponse implements MutationResponse {
+  code: String!
+  success: Boolean!
+  message: String!
+  data: AuthPayload!
+}
+
+type loginMutationResponse implements MutationResponse {
+  code: String!
+  success: Boolean!
+  message: String!
+  data: AuthPayload!
 }

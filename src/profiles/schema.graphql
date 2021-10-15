@@ -6,3 +6,7 @@ type Profile {
   secondName: String
   age: String!
 }
+
+type Query {
+  getProfile(id: String!): Profile!
+}

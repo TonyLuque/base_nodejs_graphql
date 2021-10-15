@@ -4,7 +4,12 @@ const { authUser } = require("../utils");
 async function saludar(parent, args, context, info) {
   authUser(context);
 
-  return "Oa Julay";
+  return {
+    code: "200",
+    success: true,
+    message: "oaoaoaoa",
+    data: "Oa Julay",
+  };
 }
 
 module.exports = {

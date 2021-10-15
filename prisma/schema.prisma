@@ -10,26 +10,32 @@ generator client {
   provider = "prisma-client-js"
 }
 
+enum TypeUser {
+  ADMIN
+  USER
+
+}
 
 model User {
-  id    String     @id @default(uuid())
-  email String     @unique
+  id       String    @id @default(uuid())
+  email    String    @unique
   password String
-  profile Profile?
-  created DateTime @default(now())
-  updated DateTime? @updatedAt
+  profile  Profile?
+  type     TypeUser  @default(USER)
+  created  DateTime  @default(now())
+  updated  DateTime? @updatedAt
 }
 
 model Profile {
 
-id String @id @default(uuid())
-firstName String
- middleName String
-  lastName String
+  id         String    @id @default(uuid())
+  firstName  String
+  middleName String
+  lastName   String
   secondName String
-  age String
-user User @relation(fields: [userId],references: [id])
-userId String
-  created DateTime @default(now())
-  updated DateTime? @updatedAt
+  age        Int
+  user       User      @relation(fields: [userId], references: [id])
+  userId     String    @unique
+  created    DateTime  @default(now())
+  updated    DateTime? @updatedAt
 }

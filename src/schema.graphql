@@ -3,7 +3,18 @@ type Query {
 }
 
 type Mutation {
-  saludar: String!
-  signup(email: String!, password: String!): AuthPayload
-  login(email: String!, password: String!): AuthPayload
+  saludar: saludarMutationResponse!
+}
+
+interface MutationResponse {
+  code: String!
+  success: Boolean!
+  message: String!
+}
+
+type saludarMutationResponse implements MutationResponse {
+  code: String!
+  success: Boolean!
+  message: String!
+  data: String!
 }
